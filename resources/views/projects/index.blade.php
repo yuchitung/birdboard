@@ -1,19 +1,16 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-</head>
-<body>
-<h1>Birdboard</h1>
+@extends ('layouts.app')
+    <!DOCTYPE html>
+@section('content')
+    <body>
+    <h1>Birdboard</h1>
 
-<ul>
-    @forelse ($projects as $project)
-        <li>
-            <a href="{{$project->path()}}">{{$project->title}}</a>
-        </li>
-    @empty
-        <li>No projects yet.</li>
-    @endforelse
-</ul>
-</body>
-</html>
+    <ul>
+        @forelse ($projects as $project)
+            <li>
+                <a href="{{$project->path()}}">{{$project->title}}</a>
+            </li>
+        @empty
+            <li>No projects yet.</li>
+        @endforelse
+    </ul>
+@endsection
