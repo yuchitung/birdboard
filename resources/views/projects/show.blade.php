@@ -4,7 +4,8 @@
     <header class="flex items-center mb-3 py-4">
         <div class="flex justify-between items-end w-full">
             <p class="text-grey text-sm font-normal">
-                <a href="/projects" class="text-grey text-sm font-normal no-underline">My Projects</a> / {{$project->title}}
+                <a href="/projects" class="text-grey text-sm font-normal no-underline">My Projects</a>
+                / {{$project->title}}
             </p>
             <a href="/projects/create" class="button">New Project</a>
         </div>
@@ -16,7 +17,9 @@
                 <div class="mb-6">
                     <h2 class="text-lg text-grey font-normal mb-3">Tasks</h2>
                     {{-- tasks --}}
-                    <div class="card mb-3">Lorem ipsum.</div>
+                    @foreach($project->tasks as $task)
+                        <div class="card mb-3">{{$task->body}}</div>
+                    @endforeach
                 </div>
                 <div>
                     <h2 class="text-lg text-grey font-normal mb-3">General Notes</h2>
