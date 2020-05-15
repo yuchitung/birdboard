@@ -1,7 +1,6 @@
 // Variables
 @import 'variables';
 
-
 /**
  * This injects Tailwind's base styles, which is a combination of
  * Normalize.css and some additional base styles.
@@ -39,6 +38,10 @@
  * @import "components/buttons";
  * @import "components/forms";
  */
+
+.section {
+    @apply .px-4;
+}
 
 .button {
     @apply .bg-blue .text-white .no-underline .rounded-lg .text-sm .py-2 .px-5;
