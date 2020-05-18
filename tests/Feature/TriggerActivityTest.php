@@ -65,7 +65,7 @@ class TriggerActivityTest extends TestCase
     function completing_a_task()
     {
         $project = ProjectFactory::withTasks(1)->create();
-
+        sleep(1);
         $this->actingAs($project->owner)
             ->patch($project->tasks->first()->path(), [
                 'body' => 'foobar',
@@ -74,7 +74,7 @@ class TriggerActivityTest extends TestCase
 
         $this->assertCount(3, $project->activity);
 
-        tap($project->activity->last(), function ($activity) {
+        tap($project->activity->first(), function ($activity) {
             $this->assertEquals('completed_task', $activity->description);
             $this->assertInstanceOf(Task::class, $activity->subject);
         });
